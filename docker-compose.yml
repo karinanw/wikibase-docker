@@ -140,7 +140,6 @@ services:
      - wikibase
     volumes:
      - quickstatements-data:/quickstatements/data
-     - ./wikibase-basic-local/qs-oauth.json:/quickstatements/data/qs-oauth.json
     networks:
       default:
         aliases:
