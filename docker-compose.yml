@@ -22,8 +22,6 @@ services:
     volumes:
       - mediawiki-images-data:/var/www/html/images
       - quickstatements-data:/quickstatements/data
-      - ./wikibase-basic-local/LocalSettings.php:/var/www/html/LocalSettings.php
-      - ./wikibase-basic-local/custom.png:/var/www/html/resources/assets/wiki.png
     depends_on:
     - mysql
     - elasticsearch
