@@ -22,6 +22,8 @@ services:
     volumes:
       - mediawiki-images-data:/var/www/html/images
       - quickstatements-data:/quickstatements/data
+      - ./wikibase-basic-local/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./wikibase-basic-local/custom.png:/var/www/html/resources/assets/wiki.png
     depends_on:
     - mysql
     - elasticsearch
@@ -138,6 +140,7 @@ services:
      - wikibase
     volumes:
      - quickstatements-data:/quickstatements/data
+     - ./wikibase-basic-local/qs-oauth.json:/quickstatements/data/qs-oauth.json
     networks:
       default:
         aliases:
@@ -150,7 +153,8 @@ services:
       - "WB_PROPERTY_PREFIX=Property:"
       - WB_ITEM_NAMESPACE=120
       - "WB_ITEM_PREFIX=Item:"
-
+      - OAUTH_CONSUMER_KEY=50663f2ac7a5d82a6f450a0fd421db53
+      - OAUTH_CONSUMER_SECRET=01920b4e6042478f09397d3f5e9b9c3c4e98a0ad
 volumes:
   mediawiki-mysql-data:
   mediawiki-images-data:
